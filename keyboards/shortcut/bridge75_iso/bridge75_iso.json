@@ -1,7 +1,7 @@
 {
     "name": "Bridge75",
-    "vendorId": "0xFFFE",
-    "productId": "0x003E",
+    "vendorId":  "0x0094",
+    "productId": "0xFEFE",
     "keycodes": ["qmk_lighting"],
     "menus": [
       {
@@ -62,16 +62,13 @@
     ],
     "matrix": {"rows": 6, "cols": 15},
     "customKeycodes": [
-        {"name":"BT_HOST1","title":"BT_HOST1","shortName":"BT_HOST1"},
-        {"name":"BT_HOST2","title":"BT_HOST2","shortName":"BT_HOST2"},
-        {"name":"BT_HOST3","title":"BT_HOST3","shortName":"BT_HOST3"},
-        {"name":"BT_2_4G", "title":"BT_2_4G", "shortName":"BT_2_4G"},
-        {"name":"BT_USB",  "title":"BT_USB",  "shortName":"BT_USB"},
-        {"name":"BT_SW",  "title":"BT_SW",  "shortName":"BT_SW"},
-        {"name":"BTLVL",  "title":"BTLVL",  "shortName":"BTLVL"},
-        {"name":"Low Delay",  "title":"1ms debounce",  "shortName":"LowD"},
-        {"name":"Common Delay",  "title":"5ms debounce",  "shortName":"ComD"},
-        {"name":"High Delay",  "title":"25ms debounce",  "shortName":"HighD"}
+      {"name": "KC_USB","title": "USB","shortName": "KC_USB"},
+      {"name": "KC_BT1","title": "BT 1","shortName": "KC_BT1"},
+      {"name": "KC_BT2","title": "BT 2","shortName": "KC_BT2"},
+      {"name": "KC_BT3","title": "BT 3","shortName": "KC_BT3"},
+      {"name": "KC_BT4","title": "BT 4","shortName": "KC_BT4"},
+      {"name": "KC_BT5","title": "BT 5","shortName": "KC_BT5"},
+      {"name": "KC_2G4","title": "2.4G","shortName": "KC_2G4"}
     ],
     "layouts": {
         "keymap":
@@ -125,9 +122,9 @@
               "1,10",
               "1,11",
               "1,12",
+              "4,12",
               {
-                "c": "#aaaaaa",
-                "w": 2
+                "c": "#aaaaaa"
               },
               "1,13",
               {
@@ -157,9 +154,18 @@
               "2,11",
               "2,12",
               {
-                "w": 1.5
+                "x": 0.25,
+                "c": "#777777",
+                "w": 1.25,
+                "h": 2,
+                "w2": 1.5,
+                "h2": 1,
+                "x2": -0.25
               },
-              "2,13",
+              "3,13",
+              {
+                "c": "#cccccc"
+              },
               "2,14"
             ],
             [
@@ -184,25 +190,22 @@
               "3,9",
               "3,10",
               "3,11",
+              "3,12",
               {
-                "c": "#777777",
-                "w": 2.25
-              },
-              "3,13",
-              {
-                "c": "#cccccc"
+                "x": 1.25
               },
               "3,14"
             ],
             [
               {
                 "c": "#aaaaaa",
-                "w": 2.25
+                "w": 1.25
               },
               "4,0",
               {
                 "c": "#cccccc"
               },
+              "5,3",
               "4,1",
               "4,2",
               "4,3",
