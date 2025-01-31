@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
 	_______, 	_______,  	C(A(KC_W)),	C(A(KC_E)),	_______,   	_______,   	C(A(KC_Y)),	C(A(KC_U)),	C(A(KC_I)),	C(A(KC_O)),	_______,   	_______,	_______,    _______,
 	MO(1),   	_______,   	_______,   	_______,  	_______,   	C(A(KC_G)),	KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
-	NM_MOD0,	_______,   	_______,   	_______,  	C(A(KC_V)),	C(A(KC_B)), _______,   	C(A(KC_S)),	KC_ENT,   	KC_DEL,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
+	NM_MOD0,	_______,   	_______,   	_______,  	C(A(KC_V)),	C(A(KC_B)), KC_ENT,   	C(A(KC_S)),	_______,   	KC_DEL,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,										_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R)
 };
 
