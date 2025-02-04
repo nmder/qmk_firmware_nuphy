@@ -65,6 +65,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &delete_key_override,
+    NULL
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // layer 0 Mac
@@ -128,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
 	_______, 	_______,  	S(A(KC_W)),	S(A(KC_E)),	_______,   	_______,   	S(A(KC_Y)),	S(A(KC_U)),	S(A(KC_I)),	S(A(KC_O)),	_______,   	_______,	_______,    _______,
 	_______,   	_______,   	_______,   	_______,  	_______,   	S(A(KC_G)),	KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
-	NM_MOD0,	_______,   	_______,   	_______,  	S(A(KC_V)),	S(A(KC_B)), KC_ENT,   	S(A(KC_S)),	_______,   	KC_DEL,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
+	NM_MOD0,	_______,   	_______,   	_______,  	S(A(KC_V)),	S(A(KC_B)), KC_ENT,   	S(A(KC_S)),	_______,   	_______,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,										_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R)
 };
 
