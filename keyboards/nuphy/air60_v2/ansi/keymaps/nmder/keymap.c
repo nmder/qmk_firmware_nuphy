@@ -134,9 +134,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // layer 7 Mac Space
 [6] = LAYOUT(
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
-	_______, 	_______,  	S(A(KC_W)),	S(A(KC_E)),	_______,   	_______,   	S(A(KC_Y)),	S(A(KC_U)),	S(A(KC_I)),	S(A(KC_O)),	_______,   	_______,	_______,    _______,
-	_______,   	_______,   	_______,   	_______,  	_______,   	S(A(KC_G)),	KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
-	NM_MOD0,	_______,   	_______,   	_______,  	S(A(KC_V)),	S(A(KC_B)), KC_ENT,   	S(A(KC_S)),	_______,   	_______,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
+	_______, 	KC_EXLM,  	KC_HASH,	KC_EQUAL,	KC_GRV,   	KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______,
+	_______,   	_______,   	_______,   	_______,  	_______,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
+	NM_MOD0,	KC_UNDS,   	KC_LCBR,   	KC_RCBR,  	KC_LPRN,	KC_RPRN, 	KC_ENT,   	KC_MINUS,	_______,   	_______,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,										_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R),
 
 // layer 8 numbers
@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_ESC, 	KC_BRID,  	KC_BRIU,  	MAC_TASK, 	MAC_SEARCH, MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	_______,
 	_______, 	_______,  	_______,	_______,	_______,   	_______,   	KC_1,	    KC_2,	    KC_3,	    _______,	_______,   	_______,	_______,    _______,
 	_______,   	_______,   	_______,   	_______,  	_______,   	_______,	KC_4,  	    KC_5,  	    KC_6,  	    KC_0,  		KC_BSPC,   	_______,	            _______,
-	_______,	_______,   	_______,   	_______,  	_______,	_______,	KC_7,  	    KC_8,	    KC_9,  	    _______,  	_______,	_______, 	_______, 	_______,
+	_______,	_______,   	KC_LCBR,   	KC_RCBR,  	KC_LPRN,	KC_RPRN,	KC_7,  	    KC_8,	    KC_9,  	    _______,  	_______,	_______, 	_______, 	_______,
 	_______,	_______,	_______,										_______, 							_______,	_______,   	_______,	_______,    _______)
 };
 
