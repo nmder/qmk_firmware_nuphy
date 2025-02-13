@@ -17,61 +17,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-enum nm_custom_keycodes {
-    NM_MOD0 = SAFE_RANGE,
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    static bool nm_mod0_pressed = false;
-
-    switch (keycode) {
-        case KC_UP:
-        case KC_MS_U:
-            if (nm_mod0_pressed && IS_LAYER_ON(7) && record->event.pressed) {
-                tap_code(KC_WH_D);
-                return false;
-            }
-            break;
-
-        case KC_DOWN:
-        case KC_MS_D:
-            if (nm_mod0_pressed && IS_LAYER_ON(7) && record->event.pressed) {
-                tap_code(KC_WH_U);
-                return false;
-            }
-            break;
-
-        case KC_LEFT:
-        case KC_MS_L:
-            if (nm_mod0_pressed && IS_LAYER_ON(7) && record->event.pressed) {
-                tap_code(KC_WH_R);
-                return false;
-            }
-            break;
-
-        case KC_RGHT:
-        case KC_MS_R:
-            if (nm_mod0_pressed && IS_LAYER_ON(7) && record->event.pressed) {
-                tap_code(KC_WH_L);
-                return false;
-            }
-            break;
-
-        case NM_MOD0:
-            nm_mod0_pressed = record->event.pressed;
-            break;
-    }
-
-    return true;
-}
-
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
+
+const key_override_t mswh_l_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_R, KC_WH_L);
+const key_override_t mswh_r_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_L, KC_WH_R);
+const key_override_t mswh_u_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_D, KC_WH_U);
+const key_override_t mswh_d_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_U, KC_WH_D);
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &delete_key_override2,
+    &mswh_l_key_override,
+    &mswh_r_key_override,
+    &mswh_u_key_override,
+    &mswh_d_key_override,
     NULL
 };
 
@@ -138,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  	KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
 	_______, 	KC_EXLM,  	KC_UNDS,	KC_EQUAL,	KC_GRV,   	KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______,
 	_______,   	_______,   	_______,   	_______,  	_______,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
-	NM_MOD0,	KC_AMPR,   	KC_LCBR,   	KC_RCBR,  	KC_LPRN,	KC_RPRN, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	_______,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
+	_______,	KC_AMPR,   	KC_LCBR,   	KC_RCBR,  	KC_LPRN,	KC_RPRN, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	_______,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,										_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R),
 
 // layer 8 numbers
