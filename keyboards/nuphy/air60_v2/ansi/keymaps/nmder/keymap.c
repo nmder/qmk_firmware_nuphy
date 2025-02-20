@@ -36,6 +36,117 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+    static uint16_t h_tap_timer = 0;
+    static uint16_t j_tap_timer = 0;
+    static uint16_t k_tap_timer = 0;
+    static uint16_t l_tap_timer = 0;
+
+    static bool h_held = false;
+    static bool j_held = false;
+    static bool k_held = false;
+    static bool l_held = false;
+
+    switch (keycode) {
+
+        case KC_H:
+            if (IS_LAYER_ON(7) && record->event.pressed) {
+                h_tap_timer = timer_read();
+                h_held = false;
+                return false;
+            } else if (h_tap_timer != 0) {
+                if (timer_elapsed(h_tap_timer) < TAPPING_TERM) {
+                    tap_code16(KC_LPRN);
+                }
+                h_tap_timer = 0;
+                return false;
+            } else if (h_held) {
+                unregister_code(KC_RWIN);
+                h_held = false;
+                return false;
+            }
+            break;
+
+        case KC_J:
+            if (IS_LAYER_ON(7) && record->event.pressed) {
+                j_tap_timer = timer_read();
+                j_held = false;
+                return false;
+            } else if (j_tap_timer != 0) {
+                if (timer_elapsed(j_tap_timer) < TAPPING_TERM) {
+                    tap_code16(KC_LCBR);
+                }
+                j_tap_timer = 0;
+                return false;
+            } else if (j_held) {
+                unregister_code(KC_RALT);
+                j_held = false;
+                return false;
+            }
+            break;
+
+        case KC_K:
+            if (IS_LAYER_ON(7) && record->event.pressed) {
+                k_tap_timer = timer_read();
+                k_held = false;
+                return false;
+            } else if (k_tap_timer != 0) {
+                if (timer_elapsed(k_tap_timer) < TAPPING_TERM) {
+                    tap_code16(KC_RCBR);
+                }
+                k_tap_timer = 0;
+                return false;
+            } else if (k_held) {
+                unregister_code(KC_RSFT);
+                k_held = false;
+                return false;
+            }
+            break;
+
+        case KC_L:
+            if (IS_LAYER_ON(7) && record->event.pressed) {
+                l_tap_timer = timer_read();
+                l_held = false;
+                return false;
+            } else if (l_tap_timer != 0) {
+                if (timer_elapsed(l_tap_timer) < TAPPING_TERM) {
+                    tap_code16(KC_RPRN);
+                }
+                l_tap_timer = 0;
+                return false;
+            } else if (l_held) {
+                unregister_code(KC_RCTL);
+                l_held = false;
+                return false;
+            }
+            break;
+
+        default:
+            if (h_tap_timer != 0 && (record->event.pressed || timer_elapsed(h_tap_timer) > TAPPING_TERM)) {
+                h_tap_timer = 0;
+                register_code(KC_RWIN);
+                h_held = true;
+            }
+            if (j_tap_timer != 0 && (record->event.pressed || timer_elapsed(j_tap_timer) > TAPPING_TERM)) {
+                j_tap_timer = 0;
+                register_code(KC_RALT);
+                j_held = true;
+            }
+            if (k_tap_timer != 0 && (record->event.pressed || timer_elapsed(k_tap_timer) > TAPPING_TERM)) {
+                k_tap_timer = 0;
+                register_code(KC_RSFT);
+                k_held = true;
+            }
+            if (l_tap_timer != 0 && (record->event.pressed || timer_elapsed(l_tap_timer) > TAPPING_TERM)) {
+                l_tap_timer = 0;
+                register_code(KC_RCTL);
+                l_held = true;
+            }
+    }
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // layer 0 Mac
@@ -106,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [7] = LAYOUT(
 	KC_ESC, 	KC_BRID,  	KC_BRIU,  	MAC_TASK, 	MAC_SEARCH, 	MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	_______,
 	_______, 	KC_1,	    KC_2,	    KC_3,	    KC_4,			KC_5,		KC_6,		KC_7,   	KC_8,   	KC_9,		KC_0,   	_______,	_______,    _______,
-	KC_BSPC,   	_______,   	_______,   	_______,  	LWIN_T(KC_TAB),	_______,	_______,	_______,	_______,	_______,	KC_BSPC,   	_______,	            _______,
+	KC_BSPC,   	_______,   	_______,   	_______,  	LWIN_T(KC_TAB),	_______,	KC_H,		KC_J,		KC_K,		KC_L,		KC_BSPC,   	_______,	            _______,
 	_______,	_______,   	KC_LCBR,   	KC_RCBR,	KC_LPRN,		KC_RPRN,	KC_LBRC,	KC_RBRC,	_______,	_______,	_______,	_______, 	_______, 	_______,
 	_______,	_______,	_______,											_______, 							_______,	_______,   	_______,	_______,    _______)
 };
