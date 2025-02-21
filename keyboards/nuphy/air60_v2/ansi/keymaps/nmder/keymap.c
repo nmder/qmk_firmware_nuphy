@@ -36,113 +36,69 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 };
 
+enum hjkl {
+    ID_H,
+    ID_J,
+    ID_K,
+    ID_L,
+    L_ID,
+    ID_OUT
+};
+
+const uint16_t mt_taps[] = { KC_LPRN, KC_LCBR, KC_RCBR, KC_RPRN };
+const uint16_t mt_mods[] = { KC_RWIN, KC_RALT, KC_RSFT, KC_RCTL };
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-    static uint16_t h_tap_timer = 0;
-    static uint16_t j_tap_timer = 0;
-    static uint16_t k_tap_timer = 0;
-    static uint16_t l_tap_timer = 0;
+    static uint16_t tap_timer[] = { 0, 0, 0, 0 };
+    static bool held[] = { false, false, false, false };
 
-    static bool h_held = false;
-    static bool j_held = false;
-    static bool k_held = false;
-    static bool l_held = false;
-
+    enum hjkl kc;
     switch (keycode) {
-
         case KC_H:
-            if (IS_LAYER_ON(7) && record->event.pressed) {
-                h_tap_timer = timer_read();
-                h_held = false;
-                return false;
-            } else if (h_tap_timer != 0) {
-                if (timer_elapsed(h_tap_timer) < TAPPING_TERM) {
-                    tap_code16(KC_LPRN);
-                }
-                h_tap_timer = 0;
-                return false;
-            } else if (h_held) {
-                unregister_code(KC_RWIN);
-                h_held = false;
-                return false;
-            }
+            kc = ID_H;
             break;
 
         case KC_J:
-            if (IS_LAYER_ON(7) && record->event.pressed) {
-                j_tap_timer = timer_read();
-                j_held = false;
-                return false;
-            } else if (j_tap_timer != 0) {
-                if (timer_elapsed(j_tap_timer) < TAPPING_TERM) {
-                    tap_code16(KC_LCBR);
-                }
-                j_tap_timer = 0;
-                return false;
-            } else if (j_held) {
-                unregister_code(KC_RALT);
-                j_held = false;
-                return false;
-            }
+            kc = ID_J;
             break;
 
         case KC_K:
-            if (IS_LAYER_ON(7) && record->event.pressed) {
-                k_tap_timer = timer_read();
-                k_held = false;
-                return false;
-            } else if (k_tap_timer != 0) {
-                if (timer_elapsed(k_tap_timer) < TAPPING_TERM) {
-                    tap_code16(KC_RCBR);
-                }
-                k_tap_timer = 0;
-                return false;
-            } else if (k_held) {
-                unregister_code(KC_RSFT);
-                k_held = false;
-                return false;
-            }
+            kc = ID_K;
             break;
 
         case KC_L:
-            if (IS_LAYER_ON(7) && record->event.pressed) {
-                l_tap_timer = timer_read();
-                l_held = false;
-                return false;
-            } else if (l_tap_timer != 0) {
-                if (timer_elapsed(l_tap_timer) < TAPPING_TERM) {
-                    tap_code16(KC_RPRN);
-                }
-                l_tap_timer = 0;
-                return false;
-            } else if (l_held) {
-                unregister_code(KC_RCTL);
-                l_held = false;
-                return false;
-            }
+            kc = ID_L;
             break;
 
         default:
-            if (h_tap_timer != 0 && (record->event.pressed || timer_elapsed(h_tap_timer) > TAPPING_TERM)) {
-                h_tap_timer = 0;
-                register_code(KC_RWIN);
-                h_held = true;
+            kc = ID_OUT;
+    }
+
+    if (kc != ID_OUT) {
+        if (IS_LAYER_ON(7) && record->event.pressed) {
+            tap_timer[kc] = timer_read();
+            held[kc] = false;
+            return false;
+        } else if (tap_timer[kc] != 0) {
+            if (timer_elapsed(tap_timer[kc]) < TAPPING_TERM) {
+                tap_code16(mt_taps[kc]);
             }
-            if (j_tap_timer != 0 && (record->event.pressed || timer_elapsed(j_tap_timer) > TAPPING_TERM)) {
-                j_tap_timer = 0;
-                register_code(KC_RALT);
-                j_held = true;
+            tap_timer[kc] = 0;
+            return false;
+        } else if (held[kc]) {
+            unregister_code(mt_mods[kc]);
+            held[kc] = false;
+            return false;
+        }
+    } else {
+        for (enum hjkl id = ID_H; id < L_ID; id++) {
+            if (tap_timer[id] != 0 && (record->event.pressed || timer_elapsed(tap_timer[id]) > TAPPING_TERM)) {
+                tap_timer[id] = 0;
+                register_code(mt_mods[id]);
+                held[id] = true;
             }
-            if (k_tap_timer != 0 && (record->event.pressed || timer_elapsed(k_tap_timer) > TAPPING_TERM)) {
-                k_tap_timer = 0;
-                register_code(KC_RSFT);
-                k_held = true;
-            }
-            if (l_tap_timer != 0 && (record->event.pressed || timer_elapsed(l_tap_timer) > TAPPING_TERM)) {
-                l_tap_timer = 0;
-                register_code(KC_RCTL);
-                l_held = true;
-            }
+        }
     }
     return true;
 }
