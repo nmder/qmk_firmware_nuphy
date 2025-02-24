@@ -6,19 +6,10 @@
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
 
-const key_override_t mswh_l_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_R, KC_WH_L);
-const key_override_t mswh_r_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_L, KC_WH_R);
-const key_override_t mswh_u_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_D, KC_WH_U);
-const key_override_t mswh_d_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_U, KC_WH_D);
-
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
     &delete_key_override,
     &delete_key_override2,
-    &mswh_l_key_override,
-    &mswh_r_key_override,
-    &mswh_u_key_override,
-    &mswh_d_key_override,
 };
 
 enum layers {
