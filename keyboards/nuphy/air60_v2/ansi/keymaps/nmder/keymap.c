@@ -36,6 +36,48 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 };
 
+const uint16_t PROGMEM combo_lbrc[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_rbrc[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_plus[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_mins[] = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM combo_hash[] = {LWIN_T(KC_F), RWIN_T(KC_H), COMBO_END};
+const uint16_t PROGMEM combo_uscr[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_equl[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_ampr[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_cart[] = {LWIN_T(KC_F), KC_E, COMBO_END};
+const uint16_t PROGMEM combo_dolr[] = {RWIN_T(KC_H), KC_U, COMBO_END};
+const uint16_t PROGMEM combo_lprn[] = {LWIN_T(KC_F), KC_W, COMBO_END};
+const uint16_t PROGMEM combo_rprn[] = {RWIN_T(KC_H), KC_I, COMBO_END};
+const uint16_t PROGMEM combo_perc[] = {LALT_T(KC_D), KC_C, COMBO_END};
+const uint16_t PROGMEM combo_astr[] = {RALT_T(KC_J), KC_N, COMBO_END};
+const uint16_t PROGMEM combo_atra[] = {RALT_T(KC_J), LALT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_baqt[] = {LALT_T(KC_D), KC_V, COMBO_END};
+const uint16_t PROGMEM combo_tild[] = {RALT_T(KC_J), KC_B, COMBO_END};
+const uint16_t PROGMEM combo_excl[] = {RSFT_T(KC_K), LSFT_T(KC_S), COMBO_END};
+const uint16_t PROGMEM combo_mute[] = {KC_VOLD, KC_VOLU, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(combo_lbrc, KC_LBRC),
+    COMBO(combo_rbrc, KC_RBRC),
+    COMBO(combo_plus, KC_PLUS),
+    COMBO(combo_mins, KC_MINS),
+    COMBO(combo_hash, KC_HASH),
+    COMBO(combo_uscr, KC_UNDS),
+    COMBO(combo_equl, KC_EQUAL),
+    COMBO(combo_ampr, KC_AMPR),
+    COMBO(combo_cart, KC_CIRC),
+    COMBO(combo_dolr, KC_DLR),
+    COMBO(combo_lprn, KC_LPRN),
+    COMBO(combo_rprn, KC_RPRN),
+    COMBO(combo_perc, KC_PERC),
+    COMBO(combo_astr, KC_ASTR),
+    COMBO(combo_atra, KC_AT),
+    COMBO(combo_baqt, KC_GRV),
+    COMBO(combo_tild, KC_TILD),
+    COMBO(combo_excl, KC_EXLM),
+    COMBO(combo_mute, KC_MUTE),
+};
+
 enum hjkl {
     ID_H,
     ID_J,
