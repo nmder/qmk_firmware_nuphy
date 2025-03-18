@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_ESC, 	KC_BRID,  	KC_BRIU,  	MAC_TASK, 	MAC_SEARCH, 	MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	_______,
 	_______, 	KC_1,	    KC_2,	    KC_3,	    KC_4,			KC_5,		KC_6,		KC_7,   	KC_8,   	KC_9,		KC_0,   	_______,	_______,    _______,
 	KC_BSPC,   	_______,   	_______,   	_______,  	LWIN_T(KC_TAB),	_______,	KC_H,		KC_J,		KC_K,		KC_L,		KC_BSPC,   	_______,	            _______,
-	_______,	_______,   	KC_LCBR,   	KC_RCBR,	KC_LPRN,		KC_RPRN,	KC_LBRC,	KC_RBRC,	_______,	_______,	_______,	_______, 	_______, 	_______,
+	_______,	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_VOLD,		KC_VOLU, 	KC_LBRC,	KC_RBRC,	_______,	_______,	_______,	_______, 	_______, 	_______,
 	_______,	_______,	_______,											_______, 							_______,	_______,   	_______,	_______,    _______)
 };
 
