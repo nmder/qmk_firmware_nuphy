@@ -16,6 +16,7 @@ const uint16_t PROGMEM combo_lbrc[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_rbrc[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM combo_tab_[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_hash[] = {LWIN_T(KC_F), RWIN_T(KC_H), COMBO_END};
 const uint16_t PROGMEM combo_uscr[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_equl[] = {KC_E, KC_R, COMBO_END};
@@ -37,6 +38,7 @@ combo_t key_combos[] = {
     COMBO(combo_rbrc, KC_RBRC),
     COMBO(combo_plus, KC_PLUS),
     COMBO(combo_mins, KC_MINS),
+    COMBO(combo_tab_, KC_TAB),
     COMBO(combo_hash, KC_HASH),
     COMBO(combo_uscr, KC_UNDS),
     COMBO(combo_equl, KC_EQUAL),
