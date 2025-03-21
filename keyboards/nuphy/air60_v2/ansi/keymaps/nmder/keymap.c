@@ -80,6 +80,21 @@ combo_t key_combos[] = {
     COMBO(combo_mute, KC_MUTE),
 };
 
+#ifdef COMBO_TERM_PER_COMBO
+uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
+    switch (combo_index) {
+        case 5:
+            return 30;
+        case 15:
+            return 30;
+        case 18:
+            return 40;
+    }
+
+    return COMBO_TERM;
+}
+#endif
+
 enum hjkl {
     ID_H,
     ID_J,
