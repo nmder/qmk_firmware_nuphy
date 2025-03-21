@@ -56,6 +56,19 @@ combo_t key_combos[] = {
     COMBO(combo_mute, KC_MUTE),
 };
 
+#ifdef COMBO_TERM_PER_COMBO
+uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
+    switch (combo_index) {
+        case 15:
+            return 30;
+        case 18:
+            return 40;
+    }
+
+    return COMBO_TERM;
+}
+#endif
+
 enum layers {
     WIN_B,
     WIN_FN,

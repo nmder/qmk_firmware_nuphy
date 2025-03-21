@@ -1,4 +1,5 @@
 #define TAPPING_TERM 200
 #define QUICK_TAP_TERM 0
 #define COMBO_TERM 20
+#define COMBO_TERM_PER_COMBO
 #define PERMISSIVE_HOLD
