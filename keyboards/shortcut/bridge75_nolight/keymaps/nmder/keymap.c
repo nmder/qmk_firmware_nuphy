@@ -12,8 +12,8 @@ const key_override_t *key_overrides[] = {
     &delete_key_override2,
 };
 
-const uint16_t PROGMEM combo_lbrc[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_rbrc[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_lbrc[] = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_rbrc[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM combo_tab_[] = {KC_Q, KC_W, COMBO_END};
