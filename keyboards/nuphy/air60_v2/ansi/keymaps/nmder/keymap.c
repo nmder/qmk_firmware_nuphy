@@ -83,6 +83,8 @@ combo_t key_combos[] = {
 #ifdef COMBO_TERM_PER_COMBO
 uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
     switch (combo_index) {
+        case 1:
+            return 10;
         case 5:
             return 30;
         case 15:
