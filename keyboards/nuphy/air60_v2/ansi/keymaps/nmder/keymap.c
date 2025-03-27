@@ -225,7 +225,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  		KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
 	_______, 	KC_EXLM,  	KC_UNDS,	KC_EQUAL,	KC_GRV,   		KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______,
 	_______,   	_______,   	_______,   	_______,  	_______,		KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
-	_______,	KC_AMPR,   	KC_LCBR,   	KC_RCBR,  	KC_LPRN,		KC_RPRN, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	KC_TAB,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
+	_______,	KC_AMPR,   	KC_LT,   	KC_GT,  	KC_BSLS,		KC_PIPE, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	KC_TAB,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,											_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R),
 
 // layer 8 numbers
