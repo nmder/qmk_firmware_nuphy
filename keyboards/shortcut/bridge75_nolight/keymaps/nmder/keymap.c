@@ -16,15 +16,15 @@ const uint16_t PROGMEM combo_lbrc[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_rbrc[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_N, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_tab_[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_tab_[] = {RCTL_T(KC_L), RSFT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_hash[] = {LWIN_T(KC_F), RWIN_T(KC_H), COMBO_END};
-const uint16_t PROGMEM combo_uscr[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_equl[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_ampr[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_uscr[] = {LSFT_T(KC_S), LALT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_equl[] = {LALT_T(KC_D), LWIN_T(KC_F), COMBO_END};
+const uint16_t PROGMEM combo_ampr[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_cart[] = {LWIN_T(KC_F), KC_E, COMBO_END};
 const uint16_t PROGMEM combo_dolr[] = {RWIN_T(KC_H), KC_U, COMBO_END};
-const uint16_t PROGMEM combo_lprn[] = {LWIN_T(KC_F), KC_W, COMBO_END};
-const uint16_t PROGMEM combo_rprn[] = {RWIN_T(KC_H), KC_I, COMBO_END};
+const uint16_t PROGMEM combo_lprn[] = {RWIN_T(KC_H), RALT_T(KC_J), COMBO_END};
+const uint16_t PROGMEM combo_rprn[] = {RALT_T(KC_J), RSFT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_perc[] = {LALT_T(KC_D), KC_C, COMBO_END};
 const uint16_t PROGMEM combo_astr[] = {RALT_T(KC_J), KC_N, COMBO_END};
 const uint16_t PROGMEM combo_atra[] = {RALT_T(KC_J), LALT_T(KC_D), COMBO_END};
@@ -66,6 +66,28 @@ uint16_t get_combo_term(uint16_t combo_index, combo_t *combo) {
     }
 
     return COMBO_TERM;
+}
+#endif
+
+#ifdef COMBO_MUST_TAP_PER_COMBO
+bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
+    // If you want all combos to be tap-only, just uncomment the next line
+    // return true
+
+    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    uint16_t key;
+    uint8_t idx = 0;
+    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
+        switch (key) {
+            case QK_MOD_TAP...QK_MOD_TAP_MAX:
+            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
+            case QK_MOMENTARY...QK_MOMENTARY_MAX:
+                return true;
+        }
+        idx += 1;
+    }
+    return false;
+
 }
 #endif
 
