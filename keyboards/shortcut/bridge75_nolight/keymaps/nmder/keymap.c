@@ -105,17 +105,20 @@ enum hjkl {
     ID_J,
     ID_K,
     ID_L,
+    ID_A,
+    ID_S,
+    ID_F,
     L_ID,
     ID_OUT
 };
 
-const uint16_t mt_taps[] = { KC_LPRN, KC_LCBR, KC_RCBR, KC_RPRN };
-const uint16_t mt_mods[] = { KC_RWIN, KC_RALT, KC_RSFT, KC_RCTL };
+const uint16_t mt_taps[] = { KC_LPRN, KC_LCBR, KC_RCBR, KC_RPRN, KC_AT, KC_AMPR, KC_DQUO };
+const uint16_t mt_mods[] = { KC_RWIN, KC_RALT, KC_RSFT, KC_RCTL, KC_LCTL, KC_LSFT, KC_LWIN };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-    static uint16_t tap_timer[] = { 0, 0, 0, 0 };
-    static bool held[] = { false, false, false, false };
+    static uint16_t tap_timer[] = { 0, 0, 0, 0, 0, 0, 0 };
+    static bool held[] = { false, false, false, false, false, false, false };
 
     enum hjkl kc;
     switch (keycode) {
@@ -135,12 +138,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             kc = ID_L;
             break;
 
+        case KC_A:
+             kc = ID_A;
+             break;
+
+         case KC_S:
+             kc = ID_S;
+             break;
+
+         case KC_F:
+             kc = ID_F;
+             break;
+
         default:
             kc = ID_OUT;
     }
 
     if (kc != ID_OUT) {
-        if (IS_LAYER_ON(NUM) && record->event.pressed) {
+        if (((IS_LAYER_ON(NUM) && kc < ID_A ) || (IS_LAYER_ON(MAC_B) && ID_L < kc && kc < L_ID )) && record->event.pressed) {
             tap_timer[kc] = timer_read();
             held[kc] = false;
             return false;
@@ -190,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,                   _______,
         _______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, KC_DEL,          _______,
         _______, 	KC_EXLM,  	KC_UNDS,	KC_EQUAL,	KC_GRV,   	KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______, _______,
-        _______,   	_______,   	_______,   	_______,  	_______,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______, _______,
+        _______,		KC_A,	 	KC_S,		LALT_T(KC_QUOT),	KC_F,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______, _______,
         _______,	KC_AMPR,   	KC_LT,   	KC_GT,  	KC_BSLS,	KC_PIPE, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	KC_TAB,  	KC_BSLS,	_______, _______,    _______,
         _______, _______, _______,                             _______,                           _______, _______,          _______, _______, _______
     ),
