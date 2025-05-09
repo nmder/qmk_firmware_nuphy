@@ -5,35 +5,11 @@
 
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
-const key_override_t f1_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_1, KC_F1);
-const key_override_t f2_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_2, KC_F2);
-const key_override_t f3_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_3, KC_F3);
-const key_override_t f4_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_4, KC_F4);
-const key_override_t f5_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_5, KC_F5);
-const key_override_t f6_key_override = ko_make_basic(MOD_MASK_SHIFT, LCTL_T(KC_6), KC_F6);
-const key_override_t f7_key_override = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_7), KC_F7);
-const key_override_t f8_key_override = ko_make_basic(MOD_MASK_SHIFT, LALT_T(KC_8), KC_F8);
-const key_override_t f9_key_override = ko_make_basic(MOD_MASK_SHIFT, LWIN_T(KC_9), KC_F9);
-const key_override_t f10_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_F10);
-const key_override_t f11_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MPRV, KC_F11);
-const key_override_t f12_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MPLY, KC_F12);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
     &delete_key_override,
     &delete_key_override2,
-    &f1_key_override,
-    &f2_key_override,
-    &f3_key_override,
-    &f4_key_override,
-    &f5_key_override,
-    &f6_key_override,
-    &f7_key_override,
-    &f8_key_override,
-    &f9_key_override,
-    &f10_key_override,
-    &f11_key_override,
-    &f12_key_override,
 };
 
 const uint16_t PROGMEM combo_lbrc[] = {RALT_T(KC_J), KC_I, COMBO_END};
@@ -122,6 +98,7 @@ enum layers {
     WIN_FN,
     MAC_B,
     NUM,
+    FUNC,
 };
 
 enum hjkl {
@@ -240,6 +217,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_AMPR,		KC_DQUO,   	KC_QUOT,   	KC_AT,		KC_QUES,    _______, _______, _______,          _______,
         KC_BSPC, LCTL_T(KC_6),       LSFT_T(KC_7),       LALT_T(KC_8),       LWIN_T(KC_9), KC_0,	KC_H,	KC_J,	KC_K,	KC_L,	KC_BSPC, _______,          _______,          _______,
         _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU, KC_LBRC,	KC_RBRC,	_______, _______, _______,                   _______, _______, _______,
+        _______, _______, _______,                             MO(FUNC),                           _______, _______,          _______, _______, _______
+    ),
+
+    [FUNC] = LAYOUT_ansi(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                   _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______,	_______, _______, _______, _______, _______, _______,          _______,
+        _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, _______,	_______, _______, _______, _______,          _______,          _______,
+        _______, KC_F11, KC_F12, _______, _______, _______,   _______, _______,	_______, _______, _______,                   _______, _______, _______,
         _______, _______, _______,                             _______,                           _______, _______,          _______, _______, _______
     )
 };
