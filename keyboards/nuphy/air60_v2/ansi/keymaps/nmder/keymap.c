@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
+const key_override_t delete_key_override3 = ko_make_basic(MOD_MASK_SHIFT, LT(8, KC_BSPC), KC_DEL);
 
 const key_override_t mswh_l_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_R, KC_WH_L);
 const key_override_t mswh_r_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_L, KC_WH_R);
@@ -29,6 +30,7 @@ const key_override_t mswh_d_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_U
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &delete_key_override2,
+    &delete_key_override3,
     &mswh_l_key_override,
     &mswh_r_key_override,
     &mswh_u_key_override,
@@ -263,7 +265,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [6] = LAYOUT(
 	_______, 	KC_F1,  	KC_F2,  	KC_F3,   	KC_F4,  		KC_F5,  	KC_F6,  	KC_F7,  	KC_F8,  	KC_F9,   	KC_F10, 	KC_F11, 	KC_F12, 	KC_DEL,
 	_______, 	KC_EXLM,  	KC_UNDS,	KC_EQUAL,	KC_GRV,   		KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______,
-	_______,	KC_A,	 	KC_S,		LALT_T(KC_QUOT),	KC_F,	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______,
+	_______,	KC_A,	 	KC_S,		LALT_T(KC_QUOT),	KC_F,	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	LT(8, KC_BSPC),   	_______,	            _______,
 	_______,	KC_AMPR,   	KC_LT,   	KC_GT,  	KC_BSLS,		KC_PIPE, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	KC_TAB,  	KC_BSLS,	KC_MS_BTN1, KC_MS_U,    KC_MS_BTN2,
 	_______,	_______,	_______,											_______, 							_______,	_______,   	KC_MS_L,	KC_MS_D,    KC_MS_R),
 
