@@ -3,13 +3,23 @@
 
 #include QMK_KEYBOARD_H
 
+enum layers {
+    WIN_B,
+    WIN_FN,
+    MAC_B,
+    NUM,
+    FUNC,
+};
+
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
+const key_override_t delete_key_override3 = ko_make_basic(MOD_MASK_SHIFT, LT(FUNC, KC_BSPC), KC_DEL);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
     &delete_key_override,
     &delete_key_override2,
+    &delete_key_override3,
 };
 
 const uint16_t PROGMEM combo_lbrc[] = {RALT_T(KC_J), KC_I, COMBO_END};
@@ -92,14 +102,6 @@ bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
 
 }
 #endif
-
-enum layers {
-    WIN_B,
-    WIN_FN,
-    MAC_B,
-    NUM,
-    FUNC,
-};
 
 enum hjkl {
     ID_H,
@@ -206,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,                   _______,
         _______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, KC_DEL,          _______,
         _______, 	KC_EXLM,  	KC_UNDS,	KC_EQUAL,	KC_GRV,   	KC_TILD,   	KC_ASTR,	KC_CIRC,	KC_DLR,		KC_PERC,	KC_PLUS,   	_______,	_______,    _______, _______,
-        _______,		KC_A,	 	KC_S,		LALT_T(KC_QUOT),	KC_F,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	KC_BSPC,   	_______,	            _______, _______,
+        _______,		KC_A,	 	KC_S,		LALT_T(KC_QUOT),	KC_F,   	KC_AT,		KC_LEFT,   	KC_DOWN,   	KC_UP,   	KC_RGHT,  	LT(FUNC, KC_BSPC),   	_______,	            _______, _______,
         _______,	KC_AMPR,   	KC_LT,   	KC_GT,  	KC_BSLS,	KC_PIPE, 	KC_ENT,   	KC_MINUS,	KC_HASH,   	KC_TAB,  	KC_BSLS,	_______, _______,    _______,
         _______, _______, _______,                             _______,                           _______, _______,          _______, _______, _______
     ),
