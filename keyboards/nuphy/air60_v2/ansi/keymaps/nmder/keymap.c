@@ -50,6 +50,10 @@ const uint16_t PROGMEM combo_rprn[] = {RWIN_T(KC_J), RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_astr[] = {RALT_T(KC_K), KC_M, COMBO_END};
 const uint16_t PROGMEM combo_baqt[] = {LALT_T(KC_D), KC_V, COMBO_END};
 const uint16_t PROGMEM combo_mute[] = {KC_VOLD, KC_VOLU, COMBO_END};
+const uint16_t PROGMEM combo_lcrb[] = {KC_H, RSFT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM combo_rcrb[] = {RWIN_T(KC_J), RSFT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM combo_dquo[] = {LSFT_T(KC_S), LWIN_T(KC_F), COMBO_END};
+const uint16_t PROGMEM combo_squo[] = {LALT_T(KC_D), KC_G, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_lbrc, KC_LBRC),
@@ -64,6 +68,10 @@ combo_t key_combos[] = {
     COMBO(combo_astr, KC_ASTR),
     COMBO(combo_baqt, KC_GRV),
     COMBO(combo_mute, KC_MUTE),
+    COMBO(combo_lcrb, KC_LCBR),
+    COMBO(combo_rcrb, KC_RCBR),
+    COMBO(combo_dquo, KC_DQUO),
+    COMBO(combo_squo, KC_QUOT),
 };
 
 #ifdef COMBO_TERM_PER_COMBO
