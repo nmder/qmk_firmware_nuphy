@@ -53,7 +53,7 @@ const uint16_t PROGMEM combo_mute[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {KC_H, RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {RWIN_T(KC_J), RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_dquo[] = {LSFT_T(KC_S), LWIN_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_squo[] = {LALT_T(KC_D), KC_G, COMBO_END};
+const uint16_t PROGMEM combo_squo[] = {LWIN_T(KC_F), LCTL_T(KC_A), COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_lbrc, KC_LBRC),
