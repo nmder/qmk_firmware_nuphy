@@ -21,6 +21,8 @@ const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC
 const key_override_t delete_key_override2 = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
 const key_override_t delete_key_override3 = ko_make_basic(MOD_MASK_SHIFT, LT(8, KC_BSPC), KC_DEL);
 
+const key_override_t vold_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_MUTE);
+
 const key_override_t mswh_l_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_R, KC_WH_L);
 const key_override_t mswh_r_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_L, KC_WH_R);
 const key_override_t mswh_u_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_D, KC_WH_U);
@@ -31,6 +33,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &delete_key_override2,
     &delete_key_override3,
+    &vold_override,
     &mswh_l_key_override,
     &mswh_r_key_override,
     &mswh_u_key_override,
@@ -49,7 +52,6 @@ const uint16_t PROGMEM combo_lprn[] = {KC_H, RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_rprn[] = {RWIN_T(KC_J), RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_astr[] = {RALT_T(KC_K), KC_M, COMBO_END};
 const uint16_t PROGMEM combo_baqt[] = {LALT_T(KC_D), KC_V, COMBO_END};
-const uint16_t PROGMEM combo_mute[] = {KC_VOLD, KC_VOLU, COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {KC_H, RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {RWIN_T(KC_J), RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_dquo[] = {LSFT_T(KC_S), LWIN_T(KC_F), COMBO_END};
@@ -67,7 +69,6 @@ combo_t key_combos[] = {
     COMBO(combo_rprn, KC_RPRN),
     COMBO(combo_astr, KC_ASTR),
     COMBO(combo_baqt, KC_GRV),
-    COMBO(combo_mute, KC_MUTE),
     COMBO(combo_lcrb, KC_LCBR),
     COMBO(combo_rcrb, KC_RCBR),
     COMBO(combo_dquo, KC_DQUO),
