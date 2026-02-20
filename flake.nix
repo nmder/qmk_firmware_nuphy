@@ -26,6 +26,7 @@
             shellHook = ''
               echo "🧠 QMK dev shell ready"
               echo "Run: qmk setup (first time only)"
+              echo "Run: qmk compile -kb nuphy/air60_v2/ansi -km nmder"
             '';
           };
         });
