@@ -28,6 +28,8 @@ const key_override_t mswh_r_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_L
 const key_override_t mswh_u_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_D, KC_WH_U);
 const key_override_t mswh_d_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_MS_U, KC_WH_D);
 
+const key_override_t astr_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_ASTR, KC_PERC);
+
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
@@ -38,6 +40,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &mswh_r_key_override,
     &mswh_u_key_override,
     &mswh_d_key_override,
+    &astr_key_override,
     NULL
 };
 
