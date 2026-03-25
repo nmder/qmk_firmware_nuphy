@@ -48,8 +48,10 @@ const uint16_t PROGMEM combo_lbrc[] = {RWIN_T(KC_J), KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_rbrc[] = {RALT_T(KC_K), KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_DOT, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_COMM, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_tab_[] = {RSFT_T(KC_L), RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_uscr[] = {LSFT_T(KC_S), LALT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_squo[] = {LALT_T(KC_D), LWIN_T(KC_F), COMBO_END};
+const uint16_t PROGMEM combo_bacq[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_tab_[] = {RSFT_T(KC_L), RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_equl[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_lprn[] = {LT(7, KC_H), RALT_T(KC_K), COMBO_END};
 const uint16_t PROGMEM combo_rprn[] = {RWIN_T(KC_J), RALT_T(KC_K), COMBO_END};
@@ -57,18 +59,17 @@ const uint16_t PROGMEM combo_astr[] = {RALT_T(KC_K), KC_M, COMBO_END};
 const uint16_t PROGMEM combo_tild[] = {LALT_T(KC_D), LT(7, KC_G), COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {LT(7, KC_H), RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {RWIN_T(KC_J), RSFT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM combo_dquo[] = {LALT_T(KC_D), LWIN_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_squo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_hash[] = {LSFT_T(KC_S), LWIN_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_bacq[] = {KC_C, KC_X, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_lbrc, KC_LBRC),
     COMBO(combo_rbrc, KC_RBRC),
     COMBO(combo_plus, KC_PLUS),
     COMBO(combo_mins, KC_MINS),
-    COMBO(combo_tab_, KC_TAB),
     COMBO(combo_uscr, KC_UNDS),
+    COMBO(combo_squo, KC_QUOT),
+    COMBO(combo_bacq, KC_GRV),
+    COMBO(combo_tab_, KC_TAB),
     COMBO(combo_equl, KC_EQUAL),
     COMBO(combo_lprn, KC_LPRN),
     COMBO(combo_rprn, KC_RPRN),
@@ -76,10 +77,7 @@ combo_t key_combos[] = {
     COMBO(combo_tild, KC_TILD),
     COMBO(combo_lcrb, KC_LCBR),
     COMBO(combo_rcrb, KC_RCBR),
-    COMBO(combo_dquo, KC_DQUO),
-    COMBO(combo_squo, KC_QUOT),
     COMBO(combo_hash, KC_HASH),
-    COMBO(combo_bacq, KC_GRV),
 };
 
 #ifdef COMBO_TERM_PER_COMBO
