@@ -124,7 +124,7 @@ enum hjkl {
     ID_OUT
 };
 
-const uint16_t mt_taps[] = { KC_LCBR, KC_RCBR, KC_RPRN, KC_AT, KC_AMPR, KC_DQUO };
+const uint16_t mt_taps[] = { KC_LPRN, KC_RPRN, KC_RCBR, KC_AT, KC_AMPR, KC_DQUO };
 const uint16_t mt_mods[] = { KC_RWIN, KC_RALT, KC_RSFT, KC_LCTL, KC_LSFT, KC_LWIN };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -260,7 +260,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [7] = LAYOUT(
 	KC_ESC, 	KC_BRID,  	KC_BRIU,  	MAC_TASK, 	MAC_SEARCH, MAC_VOICE,  MAC_DND,  	KC_MPRV,  	KC_MPLY,  	KC_MNXT, 	KC_MUTE, 	KC_VOLD, 	KC_VOLU, 	_______,
 	_______, 	KC_MINUS,	    KC_1,	    KC_2,	    KC_3,		KC_PLUS,		KC_VOLD,		KC_MPRV,   	KC_MPLY,  	KC_MNXT,	KC_VOLU,   	_______,	_______,    _______,
-	_______,   	LCTL_T(KC_BSPC),  	LSFT_T(KC_4),  	LALT_T(KC_5),	LWIN_T(KC_6),	KC_0,		KC_LPRN,		KC_J,		KC_K,		KC_L,		RCTL_T(KC_BSPC),   	_______,	            _______,
+	_______,   	LCTL_T(KC_BSPC),  	LSFT_T(KC_4),  	LALT_T(KC_5),	LWIN_T(KC_6),	KC_0,		KC_LCBR,		KC_J,		KC_K,		KC_L,		RCTL_T(KC_BSPC),   	_______,	            _______,
 	KC_SLSH,	KC_ASTR,  	KC_7,  	KC_8, 	KC_9,		KC_DOT, 	_______,	KC_LBRC,	KC_RBRC,	_______,	_______,	_______, 	_______, 	_______,
 	_______,	_______,	_______,											MO(8), 							_______,	_______,   	_______,	_______,    _______),
 
