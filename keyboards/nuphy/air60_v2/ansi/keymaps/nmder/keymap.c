@@ -50,7 +50,7 @@ const uint16_t PROGMEM combo_lbrc[] = {RWIN_T(KC_J), KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_rbrc[] = {RALT_T(KC_K), KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_DOT, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_COMM, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_uscr[] = {LSFT_T(KC_S), LALT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM combo_uscr[] = {RSFT_T(KC_L), RCTL_T(KC_SCLN), COMBO_END};
 const uint16_t PROGMEM combo_squo[] = {LALT_T(KC_D), LWIN_T(KC_F), COMBO_END};
 const uint16_t PROGMEM combo_bacq[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_tab_[] = {RSFT_T(KC_L), RALT_T(KC_K), COMBO_END};
@@ -62,7 +62,6 @@ const uint16_t PROGMEM combo_tild[] = {LALT_T(KC_D), LT(7, KC_G), COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {LT(7, KC_H), RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {RWIN_T(KC_J), RSFT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM combo_hash[] = {LSFT_T(KC_S), LWIN_T(KC_F), COMBO_END};
-const uint16_t PROGMEM combo_entr[] = {KC_M, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_lbrc, KC_LBRC),
@@ -81,7 +80,6 @@ combo_t key_combos[] = {
     COMBO(combo_lcrb, KC_LCBR),
     COMBO(combo_rcrb, KC_RCBR),
     COMBO(combo_hash, KC_HASH),
-    COMBO(combo_entr, KC_ENT),
 };
 
 #ifdef COMBO_TERM_PER_COMBO
